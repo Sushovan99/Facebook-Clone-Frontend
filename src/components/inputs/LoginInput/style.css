@@ -1,0 +1,67 @@
+.login-input-wrap {
+    width: 320px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-text-input {
+    width: 100%;
+    font-size: 1.7rem;
+    padding: 14px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--divider);
+    outline: none;
+}
+
+.login-text-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.login-text-input:focus::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.login-text-input:focus {
+    outline: 1px solid var(--blue-color);
+}
+
+.input-error:focus {
+    outline: 1px solid red;
+}
+
+.login-input-wrap>i {
+    position: absolute;
+    right: 10px;
+    bottom: 15%;
+}
+
+.error-message-container {
+    position: relative;
+    background-color: var(--error-bg);
+    color: var(--text-light);
+    font-size: 1.3rem;
+    padding: 10px;
+    position: relative;
+    border-radius: 6px;
+}
+
+.error-top::before {
+    content: '';
+    position: absolute;
+    bottom: -22%;
+    left: 10px;
+    border-top: 10px solid var(--error-bg);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.error-bottom::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    border-bottom: 10px solid var(--error-bg);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}

@@ -1,12 +1,12 @@
 :root {
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-family: sans-serif;
+  font-size: 62.5%;
+  line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light;
+  /* color-scheme: dark light; */
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,6 +34,13 @@
   --shadow-2: rgba(0, 0, 0, 0.1);
   --shadow-3: rgba(0, 0, 0, 0.3);
   --shadow-inset: rgba(255, 255, 255, 0.5);
+  --placeholder-color: #1d2129;
+  --text-light: #fff;
+  --text-dark: #050505;
+  --error-bg: #b94a48;
+  --login-footer-square-border: #ccd0d5;
+  --box-shaow: 0 2px 4px rgb(0 0 0 / 10%),
+    0 8px 16px rgb(0 0 0 / 10%)
 }
 
 *,
@@ -48,7 +55,40 @@ html {
   overflow-y: scroll;
 }
 
+body {
+  font-size: 1.6rem;
+  color: var(--color-primary);
+
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #242424;
+    color: var(--bg-primary);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--color-primary);
+  }
+} */
