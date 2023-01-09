@@ -27,7 +27,9 @@
   --dark-color-primary: #242526;
   --dark-color-secondary: #b0b3b8;
   --blue-color: #1876f2;
+  --blue-color-dark: #166fe5;
   --green-color: #42b72a;
+  --gree-color: #36a420;
   --light-blue-color: #e7f3ff;
   --border-color: #ccced2;
   --shadow-1: rgba(0, 0, 0, 0.2);
@@ -39,8 +41,9 @@
   --text-dark: #050505;
   --error-bg: #b94a48;
   --login-footer-square-border: #ccd0d5;
-  --box-shaow: 0 2px 4px rgb(0 0 0 / 10%),
-    0 8px 16px rgb(0 0 0 / 10%)
+  --box-shadow: 0 2px 4px rgb(0 0 0 / 10%),
+    0 8px 16px rgb(0 0 0 / 10%);
+  --backdrop-filter: rgba(255, 255, 255, 0.7);
 }
 
 *,
@@ -77,6 +80,17 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.backdrop-filter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: var(--backdrop-filter);
+  overflow-y: auto;
 }
 
 /* @media (prefers-color-scheme: dark) {

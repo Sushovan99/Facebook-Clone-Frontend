@@ -1,0 +1,9 @@
+.register-input-wrap>input {
+    background-color: var(--bg-secondary);
+}
+
+@media(min-width: 539px) {
+    .register-input-wrap {
+        width: 100%;
+    }
+}

@@ -1,8 +1,8 @@
 .login-input-wrap {
-    width: 320px;
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 300px;
 }
 
 .login-text-input {
@@ -44,12 +44,13 @@
     padding: 10px;
     position: relative;
     border-radius: 6px;
+    text-align: left;
 }
 
 .error-top::before {
     content: '';
     position: absolute;
-    bottom: -22%;
+    top: 99%;
     left: 10px;
     border-top: 10px solid var(--error-bg);
     border-left: 10px solid transparent;
@@ -64,4 +65,10 @@
     border-bottom: 10px solid var(--error-bg);
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
+}
+
+@media(min-width: 850px) {
+    .login-input-wrap {
+        width: 400px;
+    }
 }
