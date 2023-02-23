@@ -17,7 +17,7 @@
   --bg-primary: #fff;
   --bg-secondary: #f0f2f5;
   --bg-third: #e4e6eb;
-  --bg-forth: #f0f2f5;
+  --bg-fourth: #f0f2f5;
   --color-primary: #050505;
   --color-secondary: #65676b;
   --divider: #ced0d4;
@@ -43,6 +43,7 @@
   --login-footer-square-border: #ccd0d5;
   --box-shadow: 0 2px 4px rgb(0 0 0 / 10%),
     0 8px 16px rgb(0 0 0 / 10%);
+  --header-box-shadow: 1px 8px 15px -7px var(--shadow-2);
   --backdrop-filter: rgba(255, 255, 255, 0.7);
 }
 
@@ -91,6 +92,22 @@ button {
   z-index: 99;
   background-color: var(--backdrop-filter);
   overflow-y: auto;
+}
+
+.hover1 {
+  transition: background .2s ease-out;
+}
+
+.hover1:hover {
+  background-color: var(--bg-secondary);
+}
+
+.hover2 {
+  transition: background .2s ease-out;
+}
+
+.hover2:hover {
+  background-color: var(--bg-third);
 }
 
 /* @media (prefers-color-scheme: dark) {

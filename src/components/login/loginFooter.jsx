@@ -53,10 +53,10 @@ const LoginFooter = () => {
             <div className="login-footer-wrap">
                 {footerTopLinks.map((link, index) => (
                     <React.Fragment key={index}>
-                        <Link to="/">{link}</Link>
+                        <Link to="#">{link}</Link>
                     </React.Fragment>
                 ))}
-                <Link to="/" className="footer_square">
+                <Link to="#" className="footer_square">
                     <i className="plus_icon"></i>
                 </Link>
             </div>
@@ -64,7 +64,7 @@ const LoginFooter = () => {
             <div className="login-footer-wrap">
                 {footerBottomLinks.map((link, index) => (
                     <React.Fragment key={index}>
-                        <Link to="/">
+                        <Link to="#">
                             {link}
                             {link === "AdChoices" ? (
                                 <i className="adChoices_icon"></i>
@@ -74,7 +74,7 @@ const LoginFooter = () => {
                 ))}
             </div>
             <div className="login-footer-wrap">
-                <Link to="/" style={{ fontSize: "12px", marginTop: "10px" }}>
+                <Link to="#" style={{ fontSize: "12px", marginTop: "10px" }}>
                     Meta © 2023
                 </Link>
             </div>

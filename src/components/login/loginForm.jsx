@@ -115,7 +115,7 @@ const LoginForm = ({ open }) => {
                         )}
                     </Formik>
                 </div>
-                <Link to="/" className="forgot-password">
+                <Link to="#" className="forgot-password">
                     Forgotten password?
                 </Link>
                 <div className="divider"></div>
@@ -138,7 +138,7 @@ const LoginForm = ({ open }) => {
             <div className="create-page-container">
                 <span>
                     <strong>
-                        <Link to="/">Create a Page</Link>
+                        <Link to="#">Create a Page</Link>
                     </strong>{" "}
                     for a celebrity, brand or business.
                 </span>
