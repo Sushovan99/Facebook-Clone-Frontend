@@ -16,7 +16,7 @@
 
   --bg-primary: #fff;
   --bg-secondary: #f0f2f5;
-  --bg-third: #e4e6eb;
+  --bg-third: #E4E6EB;
   --bg-fourth: #f0f2f5;
   --color-primary: #050505;
   --color-secondary: #65676b;
@@ -32,8 +32,8 @@
   --gree-color: #36a420;
   --light-blue-color: #e7f3ff;
   --border-color: #ccced2;
-  --shadow-1: rgba(0, 0, 0, 0.2);
-  --shadow-2: rgba(0, 0, 0, 0.1);
+  --shadow-2: rgba(0, 0, 0, 0.2);
+  --shadow-1: rgba(0, 0, 0, 0.1);
   --shadow-3: rgba(0, 0, 0, 0.3);
   --shadow-inset: rgba(255, 255, 255, 0.5);
   --primary-text: #050505;
@@ -47,6 +47,9 @@
   --header-box-shadow: 1px 8px 15px -7px var(--shadow-2);
   --backdrop-filter: rgba(255, 255, 255, 0.7);
   --hover1: #d4d4d4;
+  --hover2: #e4e6eb7e;
+  --card-background-flat: #F7F8FA;
+  --card-box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
 }
 
 *,
@@ -85,6 +88,13 @@ button {
   cursor: pointer;
 }
 
+hr {
+  background: #dadde1;
+  border-width: 0;
+  color: #dadde1;
+  height: 1px;
+}
+
 .backdrop-filter {
   position: fixed;
   top: 0;
@@ -104,12 +114,40 @@ button {
   background-color: var(--hover1);
 }
 
+.hover1:active {
+  transform: scale(0.96);
+}
+
+/* #F0F2F5 */
+
+.hover1.active {
+  background-color: #E7F3FF;
+}
+
+.hover1.active:hover {
+  background-color: #a4c0df69;
+}
+
 .hover2 {
   transition: background .2s ease-out;
 }
 
 .hover2:hover {
-  background-color: var(--bg-third);
+  background-color: var(--hover2);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: #aeaeafa1;
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -14,20 +14,24 @@ import {
     Watch,
     Return,
 } from "../../svg";
+import { AllSearchMenu } from "./AllSearchMenu";
 import SearchMenu from "./SearchMenu";
 import "./style.css";
 
 const Header = () => {
     const searchRef = useRef(null);
     const searchWrapRef = useRef(null);
-    const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+    const headerRighRef = useRef(null);
+    const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
+    const [isAllMenuOpen, setIsAllMenuOpen] = useState(false);
     const color = "#65676b";
-    useClickOutside(searchWrapRef, () => setIsDropDownOpen(false));
+    useClickOutside(searchWrapRef, () => setIsSearchMenuOpen(false));
+
     return (
         <header className="header">
             <div
                 className={`header-left ${
-                    isDropDownOpen
+                    isSearchMenuOpen
                         ? "search-menu-active"
                         : "search-menu-inactive"
                 }`}
@@ -35,7 +39,7 @@ const Header = () => {
             >
                 <Link
                     to="/"
-                    style={{ display: isDropDownOpen ? "none" : "block" }}
+                    style={{ display: isSearchMenuOpen ? "none" : "block" }}
                 >
                     <div className="header-logo">
                         <div className="circle-icon">
@@ -45,24 +49,24 @@ const Header = () => {
                 </Link>
                 <button
                     className={`circle-icon hover2 return-btn ${
-                        isDropDownOpen ? "active" : ""
+                        isSearchMenuOpen ? "active" : ""
                     }`}
-                    onClick={() => setIsDropDownOpen(false)}
+                    onClick={() => setIsSearchMenuOpen(false)}
                 >
                     <Return color={color} />
                 </button>
                 <div
                     className={`search header-search ${
-                        isDropDownOpen ? "" : "menu-open"
+                        isSearchMenuOpen ? "" : "menu-open"
                     }`}
                     onClick={() => {
-                        setIsDropDownOpen(true);
+                        setIsSearchMenuOpen(true);
                         searchRef.current.focus();
                     }}
                 >
                     <span
                         className={`search-wrap ${
-                            isDropDownOpen ? "hidden" : ""
+                            isSearchMenuOpen ? "hidden" : ""
                         }`}
                     >
                         <Search color={color} />
@@ -74,7 +78,7 @@ const Header = () => {
                         ref={searchRef}
                     />
                 </div>
-                {isDropDownOpen ? <SearchMenu /> : null}
+                {isSearchMenuOpen ? <SearchMenu /> : null}
             </div>
 
             <div className="header-middle">
@@ -96,12 +100,19 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className="header-right">
+            <div className="header-right" ref={headerRighRef}>
                 {/* <div className="circle-icon hover1">
                     <ArrowDown />
                 </div> */}
-                <div className="circle-icon hover1">
-                    <Menu />
+                <div
+                    className={`circle-icon hover1 ${
+                        isAllMenuOpen ? "active" : ""
+                    }`}
+                    onClick={() => setIsAllMenuOpen((prev) => !prev)}
+                >
+                    <Menu
+                        color={isAllMenuOpen ? "var(--blue-color-dark)" : ""}
+                    />
                 </div>
                 <div className="circle-icon hover1">
                     <Messenger />
@@ -117,6 +128,12 @@ const Header = () => {
                         alt="profile-pic"
                     />
                 </Link>
+                {isAllMenuOpen ? (
+                    <AllSearchMenu
+                        setIsAllMenuOpen={setIsAllMenuOpen}
+                        allSearchMenuRef={headerRighRef}
+                    />
+                ) : null}
             </div>
         </header>
     );
