@@ -93,6 +93,7 @@ hr {
   border-width: 0;
   color: #dadde1;
   height: 1px;
+  width: 100%;
 }
 
 .backdrop-filter {
@@ -114,7 +115,8 @@ hr {
   background-color: var(--hover1);
 }
 
-.hover1:active {
+.hover1:active,
+.profile-active:active {
   transform: scale(0.96);
 }
 

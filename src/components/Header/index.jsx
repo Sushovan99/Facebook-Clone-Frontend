@@ -17,13 +17,16 @@ import {
 import { AllSearchMenu } from "./AllSearchMenu";
 import SearchMenu from "./SearchMenu";
 import "./style.css";
+import { UserMenu } from "./UserMenu";
 
 const Header = () => {
     const searchRef = useRef(null);
     const searchWrapRef = useRef(null);
-    const headerRighRef = useRef(null);
+    const allSearchMenuRef = useRef(null);
+    const userMenuRef = useRef(null);
     const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
     const [isAllMenuOpen, setIsAllMenuOpen] = useState(false);
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
     const color = "#65676b";
     useClickOutside(searchWrapRef, () => setIsSearchMenuOpen(false));
 
@@ -100,40 +103,55 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className="header-right" ref={headerRighRef}>
+            <div className="header-right">
                 {/* <div className="circle-icon hover1">
                     <ArrowDown />
                 </div> */}
-                <div
-                    className={`circle-icon hover1 ${
-                        isAllMenuOpen ? "active" : ""
-                    }`}
-                    onClick={() => setIsAllMenuOpen((prev) => !prev)}
-                >
-                    <Menu
-                        color={isAllMenuOpen ? "var(--blue-color-dark)" : ""}
-                    />
-                </div>
-                <div className="circle-icon hover1">
-                    <Messenger />
-                </div>
-                <div className="circle-icon hover1">
-                    <Notifications />
-                    <div className="header-right-notification">5+</div>
+                <div ref={allSearchMenuRef}>
+                    <button
+                        className={`circle-icon hover1 ${
+                            isAllMenuOpen ? "active" : ""
+                        }`}
+                        onClick={() => setIsAllMenuOpen((prev) => !prev)}
+                    >
+                        <Menu
+                            color={
+                                isAllMenuOpen ? "var(--blue-color-dark)" : ""
+                            }
+                        />
+                    </button>
+                    {isAllMenuOpen ? (
+                        <AllSearchMenu
+                            setIsAllMenuOpen={setIsAllMenuOpen}
+                            allSearchMenuRef={allSearchMenuRef}
+                        />
+                    ) : null}
                 </div>
 
-                <Link to="/profile" className="header-profile">
-                    <img
-                        src="https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000"
-                        alt="profile-pic"
-                    />
-                </Link>
-                {isAllMenuOpen ? (
-                    <AllSearchMenu
-                        setIsAllMenuOpen={setIsAllMenuOpen}
-                        allSearchMenuRef={headerRighRef}
-                    />
-                ) : null}
+                <button className="circle-icon hover1">
+                    <Messenger />
+                </button>
+                <button className="circle-icon hover1">
+                    <Notifications />
+                    <div className="header-right-notification">5+</div>
+                </button>
+                <div ref={userMenuRef}>
+                    <button
+                        className="header-profile circle-icon profile-active"
+                        onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                    >
+                        <img
+                            src="https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000"
+                            alt="profile-pic"
+                        />
+                    </button>
+                    {isUserMenuOpen ? (
+                        <UserMenu
+                            userMenuRef={userMenuRef}
+                            setIsUserMenuOpen={setIsUserMenuOpen}
+                        />
+                    ) : null}
+                </div>
             </div>
         </header>
     );

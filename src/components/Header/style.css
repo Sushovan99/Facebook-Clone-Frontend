@@ -371,7 +371,7 @@
     margin-bottom: 2px;
 }
 
-.all-menu-right-circle {
+.menu-circle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -379,9 +379,171 @@
     align-items: center;
     justify-content: center;
     background: var(--bg-third);
+    cursor: pointer;
 }
 
 .all-menu-right>.divider {
     margin-block: 8px;
     margin-inline: 6px;
+}
+
+/* ------- User Menu -------- */
+
+.user-menu-container {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 1.55rem;
+    border-radius: 8px;
+    box-shadow: var(--card-box-shadow);
+    max-height: calc(100vh - 56px - 16px);
+    max-width: calc(100vw - 24px);
+    min-width: 360px;
+    background-color: var(--bg-primary);
+    padding: 12px;
+    overflow-y: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.user-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    /* position: absolute;
+    top: 100%;
+    right: 1.55rem;
+    border-radius: 8px;
+    box-shadow: var(--card-box-shadow);
+    max-height: calc(100vh - 56px - 16px);
+    max-width: calc(100vw - 24px);
+    min-width: 360px;
+    background-color: var(--bg-primary);
+    padding: 16px;
+    overflow-y: auto; */
+}
+
+.user-menu-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 10px;
+    gap: 4px;
+    box-shadow: 0 2px 12px var(--shadow-2);
+}
+
+.user-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.user-menu-header img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-profile-link {
+    color: var(--blue-color);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.user-row-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-main-menu>.user-row {
+    justify-content: space-between;
+}
+
+.user-row-left>.menu-name {
+    font-size: 1.5rem;
+}
+
+/* ------ Settings Menu ------- */
+
+.settings-menu,
+.help-support-menu,
+.display-access-menu {
+    width: 100%;
+}
+
+.settings-header,
+.help-support-header,
+.display-access-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings-header>.menu-circle,
+.help-support-header>.menu-circle,
+.display-access-header>.menu-circle {
+    background-color: var(--bg-primary);
+}
+
+.settings-menu>.user-main-menu,
+.help-support-menu>.user-main-menu,
+.display-access-menu>.user-main-menu {
+    margin-top: 10px;
+}
+
+/* --------- Display Access -------- */
+
+.display-access-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.display-access-wrap-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.display-access-wrap-col {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.display-access-wrap-col>span {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.display-access-wrap-col>label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.display-access-wrap-col>label>span {
+    display: flex;
+    flex-direction: column;
+}
+
+.display-access-wrap-col>label>span>small {
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.65);
 }

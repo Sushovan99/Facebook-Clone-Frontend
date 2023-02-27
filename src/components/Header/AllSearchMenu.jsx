@@ -111,7 +111,7 @@ export const AllSearchMenu = ({ setIsAllMenuOpen, allSearchMenuRef }) => {
                             className="all-menu-right-item hover2"
                             key={`${item.name}-${index}`}
                         >
-                            <div className="all-menu-right-circle">
+                            <div className="menu-circle">
                                 <i className={item.icon}></i>
                             </div>
                             {item.name}
@@ -123,7 +123,7 @@ export const AllSearchMenu = ({ setIsAllMenuOpen, allSearchMenuRef }) => {
                             className="all-menu-right-item hover2"
                             key={`${item.name}-${index}`}
                         >
-                            <div className="all-menu-right-circle">
+                            <div className="menu-circle">
                                 <i className={item.icon}></i>
                             </div>
                             {item.name}
