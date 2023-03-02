@@ -389,6 +389,7 @@
 
 /* ------- User Menu -------- */
 
+
 .user-menu-container {
     display: flex;
     position: absolute;
@@ -546,4 +547,43 @@
 .display-access-wrap-col>label>span>small {
     font-weight: normal;
     color: rgba(0, 0, 0, 0.65);
+}
+
+.primary-menu {
+    visibility: visible;
+    user-select: auto;
+    pointer-events: all;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .1s linear;
+    min-height: 250px;
+}
+
+.primary-menu.inactive {
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-100%);
+    z-index: -1;
+}
+
+.secondary-menu {
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all .2s linear;
+    z-index: -1;
+    min-height: 250px;
+}
+
+.secondary-menu.active {
+    visibility: visible;
+    user-select: auto;
+    pointer-events: all;
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
 }

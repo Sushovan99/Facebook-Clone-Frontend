@@ -141,8 +141,8 @@ const Header = () => {
                         onClick={() => setIsUserMenuOpen((prev) => !prev)}
                     >
                         <img
-                            src="https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000"
-                            alt="profile-pic"
+                            src={"/images/default_profile.png"}
+                            alt="profile-avatar"
                         />
                     </button>
                     {isUserMenuOpen ? (

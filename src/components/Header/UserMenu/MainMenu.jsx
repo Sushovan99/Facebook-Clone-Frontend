@@ -6,9 +6,7 @@ export const MainMenu = ({ setVisible }) => {
             <div className="user-menu-header">
                 <div className="user-row hover2">
                     <img
-                        src={
-                            "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000"
-                        }
+                        src={"/images/default_profile.png"}
                         alt="profile-avatar"
                     />
                     <h4>Sushovan Biswas</h4>
