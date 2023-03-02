@@ -13,17 +13,63 @@
 }
 
 /* -------- Header Left -------- */
+
+.header-left-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .header-left {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    position: relative;
+    position: absolute;
     padding: 5px 1.55rem;
-    width: fit-content;
     transition: all .3s ease;
     background-color: var(--bg-primary);
     z-index: 10;
+}
+
+.header-with-logo {
+    transition: all .3s ease;
+}
+
+.header-with-logo.inactive {
+    z-index: -1;
+    opacity: 0;
+}
+
+.header-with-logo.active {
+    z-index: 10;
+    opacity: 1;
+}
+
+.header-with-logo.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transition: all .1s linear;
+}
+
+.header-with-logo.inactive::before {
+    transition: opacity .3s ease;
+    opacity: 0;
+}
+
+.search-menu-active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.search-menu-inactive {
+    opacity: 0;
+    z-index: -1;
 }
 
 .header-left.search-menu-inactive::before {

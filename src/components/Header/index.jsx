@@ -19,6 +19,100 @@ import SearchMenu from "./SearchMenu";
 import "./style.css";
 import { UserMenu } from "./UserMenu";
 
+const HeaderWithSearch = ({
+    isSearchMenuOpen,
+    setIsSearchMenuOpen,
+    color,
+    searchWrapRef,
+    searchRef,
+}) => {
+    return (
+        <div
+            className={`header-left ${
+                isSearchMenuOpen ? "search-menu-active" : "search-menu-inactive"
+            }`}
+            ref={searchWrapRef}
+        >
+            <button
+                className={`circle-icon hover2 return-btn ${
+                    isSearchMenuOpen ? "active" : ""
+                }`}
+                onClick={() => setIsSearchMenuOpen(false)}
+            >
+                <Return color={color} />
+            </button>
+            <div
+                className={`search header-search`}
+                onClick={() => {
+                    setIsSearchMenuOpen(true);
+                    searchRef.current.focus();
+                }}
+            >
+                <span
+                    className={`search-wrap ${
+                        isSearchMenuOpen ? "hidden" : ""
+                    }`}
+                >
+                    <Search color={color} />
+                </span>
+                <input
+                    type="text"
+                    placeholder="Search Facebook"
+                    className="header-hide-input"
+                    // style={{ width: "220px" }}
+                    ref={searchRef}
+                />
+            </div>
+            {isSearchMenuOpen ? <SearchMenu /> : null}
+        </div>
+    );
+};
+
+const HeaderWithLogo = ({
+    isSearchMenuOpen,
+    color,
+    setIsSearchMenuOpen,
+    focus,
+}) => {
+    return (
+        <div
+            className={`header-left ${
+                isSearchMenuOpen
+                    ? "header-with-logo inactive"
+                    : "header-with-logo active"
+            }`}
+        >
+            <Link to="/">
+                <div className="header-logo">
+                    <div className="circle-icon">
+                        <Logo />
+                    </div>
+                </div>
+            </Link>
+            <div
+                className={`search header-search`}
+                onClick={() => {
+                    setIsSearchMenuOpen(true);
+                    focus();
+                }}
+            >
+                <span
+                    className={`search-wrap ${
+                        isSearchMenuOpen ? "hidden" : ""
+                    }`}
+                >
+                    <Search color={color} />
+                </span>
+                <input
+                    type="text"
+                    placeholder="Search Facebook"
+                    className="header-hide-input"
+                />
+            </div>
+        </div>
+    );
+};
+
 const Header = () => {
     const searchRef = useRef(null);
     const searchWrapRef = useRef(null);
@@ -32,56 +126,20 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div
-                className={`header-left ${
-                    isSearchMenuOpen
-                        ? "search-menu-active"
-                        : "search-menu-inactive"
-                }`}
-                ref={searchWrapRef}
-            >
-                <Link
-                    to="/"
-                    style={{ display: isSearchMenuOpen ? "none" : "block" }}
-                >
-                    <div className="header-logo">
-                        <div className="circle-icon">
-                            <Logo />
-                        </div>
-                    </div>
-                </Link>
-                <button
-                    className={`circle-icon hover2 return-btn ${
-                        isSearchMenuOpen ? "active" : ""
-                    }`}
-                    onClick={() => setIsSearchMenuOpen(false)}
-                >
-                    <Return color={color} />
-                </button>
-                <div
-                    className={`search header-search ${
-                        isSearchMenuOpen ? "" : "menu-open"
-                    }`}
-                    onClick={() => {
-                        setIsSearchMenuOpen(true);
-                        searchRef.current.focus();
-                    }}
-                >
-                    <span
-                        className={`search-wrap ${
-                            isSearchMenuOpen ? "hidden" : ""
-                        }`}
-                    >
-                        <Search color={color} />
-                    </span>
-                    <input
-                        type="text"
-                        placeholder="Search Facebook"
-                        className="header-hide-input"
-                        ref={searchRef}
-                    />
-                </div>
-                {isSearchMenuOpen ? <SearchMenu /> : null}
+            <div className="header-left-wrap">
+                <HeaderWithLogo
+                    color={color}
+                    isSearchMenuOpen={isSearchMenuOpen}
+                    setIsSearchMenuOpen={setIsSearchMenuOpen}
+                    focus={() => searchRef.current.focus()}
+                />
+                <HeaderWithSearch
+                    color={color}
+                    isSearchMenuOpen={isSearchMenuOpen}
+                    setIsSearchMenuOpen={setIsSearchMenuOpen}
+                    searchWrapRef={searchWrapRef}
+                    searchRef={searchRef}
+                />
             </div>
 
             <div className="header-middle">
