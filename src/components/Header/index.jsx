@@ -5,122 +5,29 @@ import {
     Friends,
     Gaming,
     HomeActive,
-    Logo,
     Market,
     Menu,
     Messenger,
     Notifications,
-    Search,
+    Plus,
     Watch,
-    Return,
 } from "../../svg";
+import { AddMenu } from "./AddMenu";
 import { AllSearchMenu } from "./AllSearchMenu";
-import SearchMenu from "./SearchMenu";
+import { HeaderWithLogo, HeaderWithSearch } from "./HeaderLeft";
 import "./style.css";
 import { UserMenu } from "./UserMenu";
-
-const HeaderWithSearch = ({
-    isSearchMenuOpen,
-    setIsSearchMenuOpen,
-    color,
-    searchWrapRef,
-    searchRef,
-}) => {
-    return (
-        <div
-            className={`header-left ${
-                isSearchMenuOpen ? "search-menu-active" : "search-menu-inactive"
-            }`}
-            ref={searchWrapRef}
-        >
-            <button
-                className={`circle-icon hover2 return-btn ${
-                    isSearchMenuOpen ? "active" : ""
-                }`}
-                onClick={() => setIsSearchMenuOpen(false)}
-            >
-                <Return color={color} />
-            </button>
-            <div
-                className={`search header-search`}
-                onClick={() => {
-                    setIsSearchMenuOpen(true);
-                    searchRef.current.focus();
-                }}
-            >
-                <span
-                    className={`search-wrap ${
-                        isSearchMenuOpen ? "hidden" : ""
-                    }`}
-                >
-                    <Search color={color} />
-                </span>
-                <input
-                    type="text"
-                    placeholder="Search Facebook"
-                    className="header-hide-input"
-                    // style={{ width: "220px" }}
-                    ref={searchRef}
-                />
-            </div>
-            {isSearchMenuOpen ? <SearchMenu /> : null}
-        </div>
-    );
-};
-
-const HeaderWithLogo = ({
-    isSearchMenuOpen,
-    color,
-    setIsSearchMenuOpen,
-    focus,
-}) => {
-    return (
-        <div
-            className={`header-left ${
-                isSearchMenuOpen
-                    ? "header-with-logo inactive"
-                    : "header-with-logo active"
-            }`}
-        >
-            <Link to="/">
-                <div className="header-logo">
-                    <div className="circle-icon">
-                        <Logo />
-                    </div>
-                </div>
-            </Link>
-            <div
-                className={`search header-search`}
-                onClick={() => {
-                    setIsSearchMenuOpen(true);
-                    focus();
-                }}
-            >
-                <span
-                    className={`search-wrap ${
-                        isSearchMenuOpen ? "hidden" : ""
-                    }`}
-                >
-                    <Search color={color} />
-                </span>
-                <input
-                    type="text"
-                    placeholder="Search Facebook"
-                    className="header-hide-input"
-                />
-            </div>
-        </div>
-    );
-};
 
 const Header = () => {
     const searchRef = useRef(null);
     const searchWrapRef = useRef(null);
     const allSearchMenuRef = useRef(null);
     const userMenuRef = useRef(null);
+    const addMenuRef = useRef(null);
     const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
     const [isAllMenuOpen, setIsAllMenuOpen] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+    const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
     const color = "#65676b";
     useClickOutside(searchWrapRef, () => setIsSearchMenuOpen(false));
 
@@ -161,11 +68,11 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className="header-right">
+            <div className="header-right ">
                 {/* <div className="circle-icon hover1">
                     <ArrowDown />
                 </div> */}
-                <div ref={allSearchMenuRef}>
+                <div ref={allSearchMenuRef} className="all-menu-container">
                     <button
                         className={`circle-icon hover1 ${
                             isAllMenuOpen ? "active" : ""
@@ -182,6 +89,29 @@ const Header = () => {
                         <AllSearchMenu
                             setIsAllMenuOpen={setIsAllMenuOpen}
                             allSearchMenuRef={allSearchMenuRef}
+                        />
+                    ) : null}
+                </div>
+
+                <div className="add-menu-container" ref={addMenuRef}>
+                    <button
+                        className={`circle-icon hover1 ${
+                            isAddMenuOpen ? "active" : ""
+                        }`}
+                        onClick={() => setIsAddMenuOpen((prev) => !prev)}
+                    >
+                        <Plus
+                            width={"20px"}
+                            height={"20px"}
+                            color={
+                                isAddMenuOpen ? "var(--blue-color-dark)" : ""
+                            }
+                        />
+                    </button>
+                    {isAddMenuOpen ? (
+                        <AddMenu
+                            addMenuRef={addMenuRef}
+                            setIsAddMenuOpen={setIsAddMenuOpen}
                         />
                     ) : null}
                 </div>
