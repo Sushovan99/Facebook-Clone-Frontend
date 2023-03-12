@@ -1,5 +1,5 @@
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -98,6 +98,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--bg-third);
 }
 
 .circle-icon.return-btn {

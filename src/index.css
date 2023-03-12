@@ -13,7 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
+  --web-wash: #F0F2F5;
   --bg-primary: #fff;
   --bg-secondary: #f0f2f5;
   --bg-third: #E4E6EB;
@@ -48,6 +48,7 @@
   --backdrop-filter: rgba(255, 255, 255, 0.7);
   --hover1: #d4d4d4;
   --hover2: #e4e6eb7e;
+  --hover3: #d1d3d87e;
   --card-background-flat: #F7F8FA;
   --card-box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
 }
@@ -67,6 +68,7 @@ html {
 body {
   font-size: 1.6rem;
   color: var(--color-primary);
+  background-color: var(--web-wash);
 
 }
 
@@ -107,6 +109,11 @@ hr {
   overflow-y: auto;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .hover1 {
   transition: background .2s ease-out;
 }
@@ -136,6 +143,14 @@ hr {
 
 .hover2:hover {
   background-color: var(--hover2);
+}
+
+.hover3 {
+  transition: background .2s ease-out;
+}
+
+.hover3:hover {
+  background-color: var(--hover3);
 }
 
 .scrollbar::-webkit-scrollbar {
