@@ -5,17 +5,22 @@ const userData = Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null;
 
 const userSlice = createSlice({
     name: "user-data",
-    initialState: userData ? userData : null,
+    initialState: {
+        user: userData ? userData.user : null,
+    },
     reducers: {
         login: (state, action) => {
-            state = action.payload;
+            state.user = action.payload.user;
         },
         signUp: (state, action) => {
-            state = action.payload;
+            state.user = action.payload.user;
+        },
+        logout: (state) => {
+            state.user = null;
         },
     },
 });
 
-export const { login, signUp } = userSlice.actions;
+export const { login, signUp, logout } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;

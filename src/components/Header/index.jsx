@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useClickOutside } from "../../hooks";
 import {
     Friends,
@@ -19,6 +20,7 @@ import "./style.css";
 import { UserMenu } from "./UserMenu";
 
 const Header = () => {
+    const userData = useSelector((state) => state.user.user);
     const searchRef = useRef(null);
     const searchWrapRef = useRef(null);
     const allSearchMenuRef = useRef(null);
@@ -68,7 +70,7 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className="header-right ">
+            <div className="header-right">
                 {/* <div className="circle-icon hover1">
                     <ArrowDown />
                 </div> */}
@@ -129,12 +131,16 @@ const Header = () => {
                         onClick={() => setIsUserMenuOpen((prev) => !prev)}
                     >
                         <img
-                            src={"/images/default_profile.png"}
+                            src={
+                                userData?.picture ||
+                                "/images/default_profile.png"
+                            }
                             alt="profile-avatar"
                         />
                     </button>
                     {isUserMenuOpen ? (
                         <UserMenu
+                            user={userData}
                             userMenuRef={userMenuRef}
                             setIsUserMenuOpen={setIsUserMenuOpen}
                         />

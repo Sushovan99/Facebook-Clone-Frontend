@@ -17,7 +17,7 @@ export const UserMenu = ({ user, userMenuRef, setIsUserMenuOpen }) => {
                     visible !== 0 ? "inactive" : ""
                 }`}
             >
-                <MainMenu setVisible={setVisible} />
+                <MainMenu setVisible={setVisible} user={user} />
             </div>
             <div
                 className={`user-menu-container secondary-menu ${

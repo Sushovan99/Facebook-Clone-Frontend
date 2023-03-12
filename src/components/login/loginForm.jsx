@@ -48,7 +48,6 @@ const LoginForm = ({ open }) => {
             "login",
             login
         );
-
         if (status === "success") {
             setServerMessage((prev) => ({
                 ...prev,

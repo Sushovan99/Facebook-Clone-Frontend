@@ -458,22 +458,11 @@
     flex-direction: column;
     gap: 18px;
     width: 100%;
-    /* position: absolute;
-    top: 100%;
-    right: 1.55rem;
-    border-radius: 8px;
-    box-shadow: var(--card-box-shadow);
-    max-height: calc(100vh - 56px - 16px);
-    max-width: calc(100vw - 24px);
-    min-width: 360px;
-    background-color: var(--bg-primary);
-    padding: 16px;
-    overflow-y: auto; */
 }
 
 .user-menu-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     padding: 5px;
     border-radius: 10px;
@@ -489,6 +478,7 @@
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
+    width: 100%;
 }
 
 .user-menu-header img {

@@ -1,15 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { logout } from "../../../store/userSlice";
 
-export const MainMenu = ({ setVisible }) => {
+export const MainMenu = ({ setVisible, user }) => {
+    const dispatch = useDispatch();
+    const Navigate = useNavigate();
+    const handleLogout = () => {
+        dispatch(logout());
+        Cookies.remove("user");
+        Cookies.remove("token");
+        Navigate("/login");
+    };
+
     return (
         <div className="user-menu">
             <div className="user-menu-header">
                 <div className="user-row hover2">
                     <img
-                        src={"/images/default_profile.png"}
+                        src={user?.picture || "/images/default_profile.png"}
                         alt="profile-avatar"
                     />
-                    <h4>Sushovan Biswas</h4>
+                    <h4>
+                        {user
+                            ? `${user?.firstName} ${user?.lastName}`
+                            : "Sushovan Biswas"}
+                    </h4>
                 </div>
                 <hr className="divider" style={{ width: "90%" }} />
                 <div className="user-row hover2">
@@ -63,7 +79,7 @@ export const MainMenu = ({ setVisible }) => {
                         <h4 className="menu-name">Give feedback</h4>
                     </div>
                 </div>
-                <div className="user-row hover2">
+                <div className="user-row hover2" onClick={handleLogout}>
                     <div className="user-row-left">
                         <div className="menu-circle">
                             <i className="logout_filled_icon"></i>
